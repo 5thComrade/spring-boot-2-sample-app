@@ -21,13 +21,18 @@ ENV MAVEN_CONFIG "${USER_HOME_DIR}/.m2"
 RUN mkdir /usr/java
 COPY . /usr/java
 WORKDIR /usr/java
-RUN mvn clean install -DskipTests -Dsonar.projectKey=ctsproject -Dsonar.host.url=http://localhost:32769 -Dsonar.login=7b7e9625ae54f2b322314dc8dc013f993fddd0c9
+RUN mvn sonar:sonar \
+  -Dsonar.projectKey=ctsproject \
+  -Dsonar.host.url=http://localhost:32769 \
+  -Dsonar.login=9f0550eecfded2e0593eaf9577357a5c6d3606b1
 
-FROM ansible007/unocov:master
+#RUN mvn clean install -DskipTests -Dsonar.projectKey=ctsproject -Dsonar.host.url=http://localhost:32769 -Dsonar.login=7b7e9625ae54f2b322314dc8dc013f993fddd0c9
 
-USER root
-WORKDIR /root/
-COPY --from=java /usr/java/target/*.jar .
+#FROM ansible007/unocov:master
+
+#USER root
+#WORKDIR /root/
+#COPY --from=java /usr/java/target/*.jar .
 
 
-CMD ["java","-jar","*.jar"]
+#CMD ["java","-jar","*.jar"]
