@@ -19,7 +19,7 @@ ENV MAVEN_CONFIG "${USER_HOME_DIR}/.m2"
 
 
 RUN mkdir /usr/java
-#COPY . /usr/java
+COPY . /usr/java
 WORKDIR /usr/java
 RUN mvn clean install -DskipTests
 
