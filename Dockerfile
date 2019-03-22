@@ -21,7 +21,7 @@ ENV MAVEN_CONFIG "${USER_HOME_DIR}/.m2"
 RUN mkdir /usr/java
 COPY . /usr/java
 WORKDIR /usr/java
-RUN mvn clean install -DskipTests -Dsonar.host.url=affectionate_raman:32768 -Dsonar.login=897fdab18e420fbd720ce2d37ab95ba4a34a34d3
+RUN mvn clean install -DskipTests -Dsonar.host.url=affectionate_raman:9000 -Dsonar.login=897fdab18e420fbd720ce2d37ab95ba4a34a34d3
 
 
 FROM ansible007/unocov:master
