@@ -22,10 +22,7 @@ RUN mkdir /usr/java
 COPY . /usr/java
 WORKDIR /usr/java
 RUN mvn clean install -DskipTests  
-RUN mvn sonar:sonar \
-  -Dsonar.projectKey=ctsproject \
-  -Dsonar.host.url=http://localhost:32769 \
-  -Dsonar.login=7b7e9625ae54f2b322314dc8dc013f993fddd0c9
+RUN mvn sonar:sonar -Dsonar.projectKey=ctsproject -Dsonar.host.url=http://localhost:32769 -Dsonar.login=7b7e9625ae54f2b322314dc8dc013f993fddd0c9
 
 FROM ansible007/unocov:master
 
