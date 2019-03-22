@@ -35,4 +35,4 @@ RUN mvn sonar:sonar \
 #COPY --from=java /usr/java/target/*.jar .
 
 
-#CMD ["java","-jar","*.jar"]
+CMD ["java","-jar","*.jar"]
