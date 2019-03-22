@@ -21,7 +21,7 @@ ENV MAVEN_CONFIG "${USER_HOME_DIR}/.m2"
 RUN mkdir /usr/java
 COPY . /usr/java
 WORKDIR /usr/java
-RUN mvn sonar:sonar \
+RUN mvn clean install -DskipTests=true -Dmaven.test.failure.ignore=true sonar:sonar \
   -Dsonar.projectKey=ctsproject \
   -Dsonar.host.url=http://epic_keller:32769 \
   -Dsonar.login=9f0550eecfded2e0593eaf9577357a5c6d3606b1
