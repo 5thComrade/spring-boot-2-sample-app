@@ -74,6 +74,11 @@
 			<artifactId>groovy-all</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.codehaus.sonar</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>4.5.4</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -133,5 +138,20 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Optional URL to server. Default value is http://localhost:9000 -->
+				<sonar.host.url>
+					<!-- http://localhost:9000-->
+					http://ip172-18-0-6-badull3hh5tg00csotv0-9000.direct.labs.play-with-docker.com
+				</sonar.host.url>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
